@@ -11,7 +11,10 @@ public class DummyBoxDatabase{
     private Context context;
     public DummyBoxDatabase(){
         list = new ArrayList<>();
-        list.add(new Box("Quaker","Brownie",R.drawable.);
+        list.add(new Box("Quaker","Brownie",R.drawable.brownie));
+        list.add(new Box("Marie Calendar","Cake",R.drawable.brownie));
+        list.add(new Box("Burger King","Fish Stick",R.drawable.brownie));
+        list.add(new Box("Tony Pepperoni","Pizza",R.drawable.brownie));
     }
 
     public List<Box> getList() {

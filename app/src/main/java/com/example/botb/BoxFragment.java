@@ -30,6 +30,7 @@ public class BoxFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    private DummyBoxDatabase db;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
