@@ -12,9 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.botb.dummy.DummyContent;
-import com.example.botb.dummy.DummyContent.DummyItem;
-
 import java.util.List;
 
 /**
@@ -52,7 +49,7 @@ public class BoxFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        db = new DummyBoxDatabase();
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -72,7 +69,7 @@ public class BoxFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyBoxRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyBoxRecyclerViewAdapter(db.getList(), mListener));
         }
         return view;
     }

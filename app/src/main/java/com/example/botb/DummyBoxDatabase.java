@@ -8,7 +8,6 @@ import java.util.List;
 
 public class DummyBoxDatabase{
     private List<Box> list;
-    private Context context;
     public DummyBoxDatabase(){
         list = new ArrayList<>();
         list.add(new Box("Quaker","Brownie",R.drawable.brownie));
