@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.botb.BoxFragment.OnListFragmentInteractionListener;
@@ -38,8 +39,9 @@ public class MyBoxRecyclerViewAdapter extends RecyclerView.Adapter<MyBoxRecycler
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        //holder.mIdView.setText(mValues.get(position).id);
-        //holder.mContentView.setText(mValues.get(position).content);
+        holder.brand.setText(mValues.get(position).getBrand());
+        holder.name.setText(mValues.get(position).getName());
+        holder.image.setImageResource(mValues.get(position).getImageID());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,20 +62,22 @@ public class MyBoxRecyclerViewAdapter extends RecyclerView.Adapter<MyBoxRecycler
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+        public final TextView brand;
+        public final TextView name;
+        public final ImageView image;
         public Box mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            brand = view.findViewById(R.id.brand);
+            name = view.findViewById(R.id.name);
+            image = view.findViewById(R.id.imageView);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + name.getText() + "'";
         }
     }
 }
