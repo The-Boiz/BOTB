@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -90,6 +93,21 @@ public class BoxFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void setBrandText(String brand) {
+        TextView view =  getView().findViewById(R.id.brand);
+        view.setText(brand);
+    }
+    public void setNameText(String name) {
+        TextView view =  getView().findViewById(R.id.name);
+        view.setText(name);
+    }
+
+    public void setImage(int imageID) {
+        ImageView image = getView().findViewById(R.id.imageView2);
+        image.setImageResource(imageID);
+
     }
 
     /**
