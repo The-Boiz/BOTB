@@ -9,14 +9,17 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.EditText;
 
 import java.io.ByteArrayOutputStream;
 
+private EditText searchBar;
 public class MainActivity extends AppCompatActivity implements BoxFragment.OnListFragmentInteractionListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        searchBar = findViewById(R.id.searchBar);
     }
 
     @Override
