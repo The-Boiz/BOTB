@@ -14,7 +14,8 @@
      android:layout_height="wrap_content"
      android:layout_width="match_parent"
      android:layout_alignParentTop="true"
-     android:inputType="text"/>
+     android:inputType="text"
+     android:text="@strings/searchBar_default_text" />
     <fragment
         android:id="@+id/fragment"
         android:name="com.example.botb.BoxFragment"
