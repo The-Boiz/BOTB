@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/horizontal_margin"
+    android:layout_marginTop="@dimen/vertical_margin"
     android:layout_marginRight="@dimen/horizontal_margin"
     android:layout_marginBottom="@dimen/vertical_margin"
-    android:layout_marginTop="@dimen/vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/searchBar"
@@ -17,12 +17,13 @@
         android:layout_alignParentTop="true"
         android:inputType="text"
         android:text="@string/box_image_desc" />
+
     <fragment
         android:id="@+id/fragment"
         android:name="com.example.botb.BoxFragment"
-        android:layout_below="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/searchBar"
         android:layout_marginTop="@dimen/vertical_margin"
         tools:layout="@layout/fragment_box_list" />
 </RelativeLayout>
