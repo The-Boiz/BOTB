@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.List;
+import android.widget.ImageView;
 
 /**
  * A fragment representing a list of Items.
@@ -90,6 +89,11 @@ public class BoxFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void setImage(int imageID) {
+        ImageView image = getView().findViewById(R.id.pic);
+        image.setImageResource(imageID);
     }
 
     /**

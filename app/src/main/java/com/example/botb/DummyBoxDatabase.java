@@ -11,9 +11,9 @@ public class DummyBoxDatabase{
     public DummyBoxDatabase(){
         list = new ArrayList<>();
         list.add(new Box("Quaker","Brownie",R.drawable.brownie));
-        list.add(new Box("Marie Calendar","Cake",R.drawable.brownie));
-        list.add(new Box("Burger King","Fish Stick",R.drawable.brownie));
-        list.add(new Box("Tony Pepperoni","Pizza",R.drawable.brownie));
+        list.add(new Box("Marie Calendar","Cake",R.drawable.cake));
+        list.add(new Box("Burger King","Fish Stick",R.drawable.fishstick));
+        list.add(new Box("Tony Pepperoni","Pizza",R.drawable.pizza));
     }
 
     public List<Box> getList() {
