@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="horizontal_margin">14dp</dimen>
+    <dimen name="verticla_margin">10dp</dimen>
+</resources>
