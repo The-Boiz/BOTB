@@ -9,13 +9,14 @@
     android:layout_marginBottom="@dimen/vertical_margin"
     android:layout_marginTop="@dimen/vertical_margin"
     tools:context=".MainActivity" >
+
     <EditText
-     android:id="@+id/searchBar"
-     android:layout_height="wrap_content"
-     android:layout_width="match_parent"
-     android:layout_alignParentTop="true"
-     android:inputType="text"
-     android:text="@strings/searchBar_default_text" />
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:inputType="text"
+        android:text="@string/box_image_desc" />
     <fragment
         android:id="@+id/fragment"
         android:name="com.example.botb.BoxFragment"

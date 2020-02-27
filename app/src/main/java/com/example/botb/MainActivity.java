@@ -13,8 +13,9 @@ import android.widget.EditText;
 
 import java.io.ByteArrayOutputStream;
 
-private EditText searchBar;
+
 public class MainActivity extends AppCompatActivity implements BoxFragment.OnListFragmentInteractionListener {
+    private EditText searchBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
