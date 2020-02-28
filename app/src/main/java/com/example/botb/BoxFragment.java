@@ -91,7 +91,7 @@ public class BoxFragment extends Fragment {
         mListener = null;
     }
 
-    public void setImage(int imageID) {
+     public void setImage(int imageID) {
         ImageView image = getView().findViewById(R.id.pic);
         image.setImageResource(imageID);
     }

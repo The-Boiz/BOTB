@@ -15,9 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:hint="@string/box_image_desc"
         android:inputType="text"
-        android:text="@string/box_image_desc" />
-
+        android:imeOptions="actionDone"/>
     <fragment
         android:id="@+id/fragment"
         android:name="com.example.botb.BoxFragment"
