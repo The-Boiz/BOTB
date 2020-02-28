@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -27,7 +28,8 @@ public class BoxFragment extends Fragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
     private DummyBoxDatabase db;
-
+    private List<Box> listBox;
+    MyBoxRecyclerViewAdapter adapter;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -53,24 +55,24 @@ public class BoxFragment extends Fragment {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_box_list, container, false);
-
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+           RecyclerView recyclerView = (RecyclerView) view;
+            adapter = new MyBoxRecyclerViewAdapter(db.getList(),mListener);
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyBoxRecyclerViewAdapter(db.getList(), mListener));
+            recyclerView.setAdapter(adapter);
         }
         return view;
+
     }
 
 
@@ -91,10 +93,21 @@ public class BoxFragment extends Fragment {
         mListener = null;
     }
 
-     public void setImage(int imageID) {
+    public MyBoxRecyclerViewAdapter getAdapter(){
+        return adapter;
+    }
+
+/*
+    public void setImage(int imageID) {
         ImageView image = getView().findViewById(R.id.pic);
         image.setImageResource(imageID);
     }
+
+
+ */
+
+
+
 
     /**
      * This interface must be implemented by activities that contain this

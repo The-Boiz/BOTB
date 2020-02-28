@@ -31,6 +31,7 @@ public class MyBoxRecyclerViewAdapter extends RecyclerView.Adapter<MyBoxRecycler
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_box, parent, false);
+
         return new ViewHolder(view);
     }
 
@@ -72,11 +73,6 @@ public class MyBoxRecyclerViewAdapter extends RecyclerView.Adapter<MyBoxRecycler
             brand = view.findViewById(R.id.brand);
             name = view.findViewById(R.id.name);
             image = view.findViewById(R.id.imageView);
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + name.getText() + "'";
         }
     }
 

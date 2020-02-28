@@ -11,48 +11,50 @@ import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class MainActivity extends AppCompatActivity implements BoxFragment.OnListFragmentInteractionListener {
-    private EditText searchBar;
-    private MyBoxRecyclerViewAdapter adapter;
+    EditText searchBar;
+    DummyBoxDatabase db;
+    BoxFragment boxFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         searchBar = findViewById(R.id.searchBar);
-        searchBar.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        boxFragment = (BoxFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+            searchBar.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
 
-            }
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filter(s.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-    }
-
-    private void filter(String text) {
-        DummyBoxDatabase db = new DummyBoxDatabase();
-        List<Box> filteredBox = new ArrayList<>();
-        adapter = new MyBoxRecyclerViewAdapter(db.getList(),null);
-        for (int i = 0; i < db.getList().size() - 1 ; i++) {
-            if (db.getList().get(i).getBrand().toLowerCase().contains(text.toLowerCase())) {
-                filteredBox.add(db.getList().get(i));
-            }
+                @Override
+                public void afterTextChanged(Editable s) {
+                    filter(s.toString());
+                }
+            });
         }
-        adapter.filterList(filteredBox);
-    }
+
     @Override
     public void onListFragmentInteraction(Box item) {
-        Intent intent = new Intent(this, ImageActivity.class);
-        intent.putExtra("Image", item.getImageID());
-        startActivity(intent);
+            Intent intent = new Intent(this, ImageActivity.class);
+            intent.putExtra("Image", item.getImageID());
+            startActivity(intent);
     }
+    private void filter(String text) {
+        db = new DummyBoxDatabase();
+        List<Box> filteredList = new ArrayList<>();
+        for (int i = 0; i < db.getList().size() - 1 ; i++) {
+            if (db.getList().get(i).getBrand().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(db.getList().get(i));
+            }
+        }
+        boxFragment.getAdapter().filterList(filteredList);
+    }
+
+
+
+
 }

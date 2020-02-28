@@ -16,14 +16,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:hint="@string/box_image_desc"
+        android:imeOptions="actionDone"
         android:inputType="text"
-        android:imeOptions="actionDone"/>
+        android:singleLine="true" />
     <fragment
         android:id="@+id/fragment"
-        android:name="com.example.botb.BoxFragment"
+        android:name ="com.example.botb.BoxFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/searchBar"
+        android:layout_below="@id/searchBar"
         android:layout_marginTop="@dimen/vertical_margin"
-        tools:layout="@layout/fragment_box_list" />
+        tools:layout="@layout/fragment_box_list"
+        />
 </RelativeLayout>
