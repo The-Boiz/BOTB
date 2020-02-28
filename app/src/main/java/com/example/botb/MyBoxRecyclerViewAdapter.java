@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.botb.BoxFragment.OnListFragmentInteractionListener;
 
@@ -20,20 +19,19 @@ import java.util.List;
  */
 public class MyBoxRecyclerViewAdapter extends RecyclerView.Adapter<MyBoxRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Box> mValues;
+    private List<Box> mValues;
     private final OnListFragmentInteractionListener mListener;
-    private final DummyBoxDatabase dummyBoxDatabase;
 
     public MyBoxRecyclerViewAdapter(List<Box> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
-        dummyBoxDatabase = new DummyBoxDatabase();
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_box, parent, false);
+
         return new ViewHolder(view);
     }
 
@@ -76,10 +74,10 @@ public class MyBoxRecyclerViewAdapter extends RecyclerView.Adapter<MyBoxRecycler
             name = view.findViewById(R.id.name);
             image = view.findViewById(R.id.imageView);
         }
+    }
 
-        @Override
-        public String toString() {
-            return super.toString() + " '" + name.getText() + "'";
-        }
+    public void filterList(List<Box> filteredBoxList) {
+        mValues = filteredBoxList;
+        notifyDataSetChanged();
     }
 }
