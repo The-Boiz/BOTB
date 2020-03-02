@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements BoxFragment.OnLis
             if (db.getList().get(i).getBrand().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(db.getList().get(i));
             }
+            else if(db.getList().get(i).getName().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(db.getList().get(i));
+            }
         }
         boxFragment.getAdapter().filterList(filteredList);
     }
