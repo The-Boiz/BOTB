@@ -105,10 +105,6 @@ public class BoxFragment extends Fragment {
 
 
  */
-
-
-
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -123,4 +119,5 @@ public class BoxFragment extends Fragment {
         // TODO: Update argument type and name
         void onListFragmentInteraction(Box item);
     }
+
 }

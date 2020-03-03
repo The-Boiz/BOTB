@@ -1,7 +1,5 @@
 package com.example.botb;
 
-import android.graphics.drawable.Drawable;
-
 public class Box {
     private String brand;
     private String name;

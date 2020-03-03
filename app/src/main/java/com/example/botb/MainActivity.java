@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements BoxFragment.OnLis
     private void filter(String text) {
         db = new DummyBoxDatabase();
         List<Box> filteredList = new ArrayList<>();
-        for (int i = 0; i < db.getList().size() - 1 ; i++) {
+        for (int i = 0; i < db.getList().size() ; i++) {
             if (db.getList().get(i).getBrand().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(db.getList().get(i));
             }
