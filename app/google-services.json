@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "738526169494",
+    "firebase_url": "https://botb-test-database.firebaseio.com",
+    "project_id": "botb-test-database",
+    "storage_bucket": "botb-test-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738526169494:android:6c218a7c0c7ccee13a35b7",
+        "android_client_info": {
+          "package_name": "com.example.botb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738526169494-uv7csnejo7cluigbsb0qo62m4je1qrtn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_ISrQ8f1bIeJpaDyrEpYrNmlLvvhGgXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738526169494-uv7csnejo7cluigbsb0qo62m4je1qrtn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
