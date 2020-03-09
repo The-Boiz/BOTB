@@ -7,14 +7,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
-
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.ArrayList;
 import java.util.List;
 //Firebase id: botb-test-database
 public class MainActivity extends AppCompatActivity implements BoxFragment.OnListFragmentInteractionListener {
-    FirebaseFirestore firedb = FirebaseFirestore.getInstance();
+
     EditText searchBar;
     DummyBoxDatabase db;
     BoxFragment boxFragment;
