@@ -40,7 +40,7 @@ public class MyBoxRecyclerViewAdapter extends RecyclerView.Adapter<MyBoxRecycler
         holder.mItem = mValues.get(position);
         holder.brand.setText(mValues.get(position).getBrand());
         holder.name.setText(mValues.get(position).getName());
-        holder.image.setImageResource(mValues.get(position).getImageID());
+        holder.image.setImageBitmap(mValues.get(position).getImage());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -3,22 +3,32 @@ package com.example.botb;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 //Firebase id: botb-test-database
 public class MainActivity extends AppCompatActivity implements BoxFragment.OnListFragmentInteractionListener {
-
+    private FirebaseDatabase fireDB;
+    private DatabaseReference myRef;
     EditText searchBar;
-    DummyBoxDatabase db;
     BoxFragment boxFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fireDB = FirebaseDatabase.getInstance();
+        myRef = fireDB.getReference();
         searchBar = findViewById(R.id.searchBar);
         boxFragment = (BoxFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
             searchBar.addTextChangedListener(new TextWatcher() {
@@ -33,18 +43,25 @@ public class MainActivity extends AppCompatActivity implements BoxFragment.OnLis
                 @Override
                 public void afterTextChanged(Editable s) {
 
-                    filter(s.toString());
+                    //filter(s.toString());
                 }
             });
         }
 
+    private void writeNewBox(String brand, String name, Bitmap picture) {
+        Box box = new Box(brand,name,picture);
+        String boxID = brand + "_" + name;
+        myRef.child("boxes").child(boxID).setValue(box);
+    }
+
     @Override
     public void onListFragmentInteraction(Box item) {
             Intent intent = new Intent(this, ImageActivity.class);
-            intent.putExtra("Image", item.getImageID());
+            intent.putExtra("Image", item.getImage());
             startActivity(intent);
     }
-    private void filter(String text) {
+
+    /*private void filter(String text) {
         db = new DummyBoxDatabase();
         List<Box> filteredList = new ArrayList<>();
         for (int i = 0; i < db.getList().size() ; i++) {
@@ -55,8 +72,9 @@ public class MainActivity extends AppCompatActivity implements BoxFragment.OnLis
                 filteredList.add(db.getList().get(i));
             }
         }
+
         boxFragment.getAdapter().filterList(filteredList);
-    }
+    }*/
 
 
 

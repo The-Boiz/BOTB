@@ -1,24 +1,21 @@
 package com.example.botb;
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
 public class Box {
     private String brand;
     private String name;
-    private int imageID;
-    public Box(String brand, String name) {
-        this.brand = brand;
-        this.name = name;
-    }
+    private Bitmap picture;
     public Box() {
         this.brand = null;
         this.name = null;
-        this.imageID = 0;
+        this.picture = null;
     }
-    public Box(String brand, String name, int imageID){
+    public Box(String brand, String name, Bitmap picture){
         this.brand = brand;
         this.name = name;
-        this.imageID = imageID;
+        this.picture = picture;
     }
 
     public String getBrand() {
@@ -37,11 +34,11 @@ public class Box {
         this.name = name;
     }
 
-    public int getImageID() {
-        return imageID;
+    public Bitmap getImage() {
+        return picture;
     }
 
-    public void setImageID(int imageID) {
-        this.imageID = imageID;
+    public void setPicture(Bitmap picture) {
+        this.picture = picture;
     }
 }

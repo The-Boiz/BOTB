@@ -27,7 +27,6 @@ public class BoxFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-    private DummyBoxDatabase db;
     private List<Box> listBox;
     MyBoxRecyclerViewAdapter adapter;
     /**
@@ -50,7 +49,6 @@ public class BoxFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db = new DummyBoxDatabase();
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -63,7 +61,7 @@ public class BoxFragment extends Fragment {
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
            RecyclerView recyclerView = (RecyclerView) view;
-            adapter = new MyBoxRecyclerViewAdapter(db.getList(),mListener);
+            //adapter = new MyBoxRecyclerViewAdapter(db.getList(),mListener);
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
